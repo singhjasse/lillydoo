@@ -42,10 +42,9 @@
                         <td>{{ contact.lastName }}</td>
                         <td>{{ contact.phoneNumber }}</td>
                         <td>{{ contact.birthday }}</td>
-                        <td class="col-2"><img src="{{ asset(contact.picture) }}" class="w-100" ></td>
+                        <td class="col-2"><img src="{{ asset(contact.picture) }}" class="w-50" ></td>
                         <td>
                             <a href="{{ path('app_contact_create', { 'id' : contact.id }) }}">Edit</a> | {{ form(contact.deleteForm) }}
-{#                            <a href="{{ path('app_contact_delete', { 'id' : contact.id }) }}">Delete</a>#}
                         </td>
                     </tr>
                 {% endfor %}

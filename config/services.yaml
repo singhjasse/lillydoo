@@ -6,7 +6,7 @@
 parameters:
     locale: 'en'
     picture_directory: '%kernel.project_dir%/public/uploads/picture'
-    default_pic: 'uploads/picture/default.jpg'
+    default_pic: 'uploads/picture/no-image.png'
 
 services:
     # default configuration for services in *this* file

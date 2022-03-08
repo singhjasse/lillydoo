@@ -1,0 +1,20 @@
+index:
+    path: /
+    controller: App\Controller\ContactController::index
+
+app_contact_list:
+  path: /contacts
+  controller: App\Controller\ContactController::index
+  methods:    GET|HEAD
+
+app_contact_create:
+  path: /contacts/createorupdate/{id?}
+  controller: App\Controller\ContactController::create
+  methods: GET|POST
+
+app_contact_delete:
+  path: /contacts/delete/{id}
+  controller: App\Controller\ContactController::delete
+  methods: POST
+
+

@@ -1,0 +1,9 @@
+contact:
+    is:
+        # id is contact.is.saved
+        saved: Congratulations! Contact saved.
+        # id is contact.is.deleted
+        deleted: Contact deleted
+    not:
+        # id is contact.not.found
+        found: Unable to find contact

@@ -1,0 +1,72 @@
+# config/validator/validation.yaml
+App\Entity\Contact:
+  properties:
+    first_name:
+      - Length:
+          min: 2
+          max: 50
+          minMessage: 'Your first name must be at least {{ limit }} characters long'
+          maxMessage: 'Your first name cannot be longer than {{ limit }} characters'
+      - Type:
+          type: string
+          message: The value {{ value }} is not a valid {{ type }}.
+      - NotBlank: ~
+    last_name:
+      - Length:
+          min: 2
+          max: 50
+          minMessage: 'Your last name must be at least {{ limit }} characters long'
+          maxMessage: 'Your last name cannot be longer than {{ limit }} characters'
+      - Type:
+          type: string
+          message: The value {{ value }} is not a valid {{ type }}.
+      - NotBlank: ~
+    address:
+      - Length:
+          min: 2
+          max: 50
+          minMessage: 'Your address must be at least {{ limit }} characters long'
+          maxMessage: 'Your address cannot be longer than {{ limit }} characters'
+      - Type:
+          type: string
+          message: The value {{ value }} is not a valid {{ type }}.
+      - NotBlank: ~
+    zip:
+      - Positive: ~
+      - Length:
+          min: 5
+          max: 7
+          minMessage: 'Your zip must be at least {{ limit }} digit long'
+          maxMessage: 'Your zip cannot be longer than {{ limit }} digit'
+      - NotBlank: ~
+    city:
+      - Length:
+          min: 2
+          max: 50
+          minMessage: 'Your city must be at least {{ limit }} characters long'
+          maxMessage: 'Your city cannot be longer than {{ limit }} characters'
+      - Type:
+          type: string
+          message: The value {{ value }} is not a valid {{ type }}.
+      - NotBlank: ~
+    country:
+      - Country: ~
+    phone_number:
+      - Positive: ~
+      - Length:
+          min: 10
+          max: 15
+          minMessage: 'Your phone number must be at least {{ limit }} digit long'
+          maxMessage: 'Your phone number cannot be longer than {{ limit }} digit'
+      - NotBlank: ~
+    birthday:
+      - NotBlank: ~
+    email:
+      - Email:
+          message: The email "{{ value }}" is not a valid email.
+    picture:
+      - Image:
+          minWidth: 200
+          maxWidth: 1400
+          minHeight: 200
+          maxHeight: 2000

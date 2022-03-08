@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Manage Contact!{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+
+        <div class="row">
+            <div class="col-md-8 clearfix">
+                <h1>Manage Contacts</h1>
+            </div>
+            <div class="col-md-4 text-right pt-2">
+                <a class="btn btn-primary " href="{{ path('app_contact_create') }}">Add New</a>
+            </div>
+        </div>
+        <div class="row">
+            {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ label }}">
+                        {{ message|trans }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Phone number</th>
+                    <th>Birthday</th>
+                    <th>Picture</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for contact in contactList %}
+                    <tr>
+                        <td>{{ contact.firstName }}</td>
+                        <td>{{ contact.lastName }}</td>
+                        <td>{{ contact.phoneNumber }}</td>
+                        <td>{{ contact.birthday }}</td>
+                        <td class="col-2"><img src="{{ asset(contact.picture) }}" class="w-100" ></td>
+                        <td>
+                            <a href="{{ path('app_contact_create', { 'id' : contact.id }) }}">Edit</a> | {{ form(contact.deleteForm) }}
+{#                            <a href="{{ path('app_contact_delete', { 'id' : contact.id }) }}">Delete</a>#}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
